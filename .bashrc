@@ -133,10 +133,10 @@ export SVN_EDITOR=vi
 # alias
 case $(uname) in
     Darwin )
-        if [ -f /opt/local/bin/gls ]; then
-            alias ls='/opt/local/bin/gls -F --color=tty --show-control-chars'
+        if [ -f "$(which gls)" ]; then
+            alias ls='gls -F --color=tty --show-control-chars'
         else
-            alias ls='ls -F --color=tty --show-control-chars'
+            alias ls='ls -FG'
         fi
         ;;
     * )
@@ -146,8 +146,8 @@ esac
 
 case $(uname) in
     Darwin )
-        if [ -f /opt/local/bin/gseq ]; then
-            alias seq='/opt/local/bin/gseq'
+        if [ -f "$(which gseq)" ]; then
+            alias seq='gseq'
         fi
         ;;
     * )
@@ -185,6 +185,9 @@ alias em='emacs'
 alias v='vim'
 alias vi='vim'
 #export ALTERNATE_EDITOR='vi'
+
+alias s='screen'
+alias sr='screen -r'
 
 alias cpan-uninstall='perl -MConfig -MExtUtils::Install -e '"'"'($FULLEXT=shift)=~s{-}{/}g;uninstall "$Config{sitearchexp}/auto/$FULLEXT/.packlist",1'"'"
 
