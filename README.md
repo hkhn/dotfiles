@@ -5,6 +5,7 @@ dotfiles
 
 ```
 cd $HOME
+bash ./dotfiles/setup.sh
 bash ./dotfiles/mklink.sh
 ```
 
